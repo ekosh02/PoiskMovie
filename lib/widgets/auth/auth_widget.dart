@@ -16,20 +16,22 @@ class _AuthWidgetState extends State<AuthWidget> {
       ),
       body: ListView(
         children: const [
-          HeaderWidget(),
-          FormWidget(),
+          _HeaderWidget(),
+          _FormWidget(),
         ],
       ),
     );
   }
 }
 
-class HeaderWidget extends StatelessWidget {
-  const HeaderWidget({Key? key}) : super(key: key);
+class _HeaderWidget extends StatelessWidget {
+  const _HeaderWidget({Key? key}) : super(key: key);
 
   final String headerText = 'Login to your account';
+
   final String descriptionText1 =
       'In order to use the editing and rating capabilities of TMDB, as well as get personal recommendations you will need to login to your account. If you do not have an account, registering for an account is free and simple. Click here to get started.';
+
   final String descriptionText2 =
       'If you signed up but didn\'t get your verification email, click here to have it resent.';
 
@@ -61,16 +63,13 @@ class HeaderWidget extends StatelessWidget {
   }
 }
 
-class FormWidget extends StatefulWidget {
-  const FormWidget({
-    super.key,
-  });
-
+class _FormWidget extends StatefulWidget {
+  const _FormWidget({Key? key}) : super(key: key);
   @override
-  State<FormWidget> createState() => _FormWidgetState();
+  State<_FormWidget> createState() => _FormWidgetState();
 }
 
-class _FormWidgetState extends State<FormWidget> {
+class _FormWidgetState extends State<_FormWidget> {
   @override
   Widget build(BuildContext context) {
     const formTextStyle = TextStyle(
