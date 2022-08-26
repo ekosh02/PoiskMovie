@@ -14,11 +14,14 @@ class _AuthWidgetState extends State<AuthWidget> {
       appBar: AppBar(
         title: const Text('TMDB'),
       ),
-      body: ListView(
-        children: const [
-          _HeaderWidget(),
-          _FormWidget(),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: ListView(
+          children: const [
+            _HeaderWidget(),
+            _FormWidget(),
+          ],
+        ),
       ),
     );
   }
@@ -48,7 +51,7 @@ class _HeaderWidget extends StatelessWidget {
       color: Colors.black,
     );
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+      padding: const EdgeInsets.symmetric(vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -83,7 +86,7 @@ class _FormWidgetState extends State<_FormWidget> {
       isCollapsed: true,
     );
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+      padding: const EdgeInsets.symmetric(vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: const [
