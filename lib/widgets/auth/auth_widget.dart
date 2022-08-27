@@ -36,6 +36,25 @@ class _FormWidget extends StatefulWidget {
 }
 
 class _FormWidgetState extends State<_FormWidget> {
+  final _loginTextController = TextEditingController();
+  final _passwordTextController = TextEditingController();
+
+  String? errorText;
+
+  void _auth() {
+    final login = _loginTextController.text;
+    final password = _passwordTextController.text;
+
+    if (login == 'admin' && password == 'admin') {
+      print('auth');
+      errorText = null;
+    } else {
+      print('Auth error');
+      errorText = 'Wrong login or password';
+    }
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     const textFieldDecaration = InputDecoration(
@@ -43,6 +62,7 @@ class _FormWidgetState extends State<_FormWidget> {
       contentPadding: EdgeInsets.symmetric(horizontal: 13, vertical: 10),
       isCollapsed: true,
     );
+    final errorText = this.errorText;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: Column(
@@ -50,16 +70,26 @@ class _FormWidgetState extends State<_FormWidget> {
         children: [
           const Text('Username', style: TextStyles.headline1RegularGray),
           const SizedBox(height: 4),
-          const TextField(decoration: textFieldDecaration),
+          TextField(
+            decoration: textFieldDecaration,
+            controller: _loginTextController,
+          ),
           const SizedBox(height: 16),
           const Text('Password', style: TextStyles.headline1RegularGray),
           const SizedBox(height: 4),
-          const TextField(decoration: textFieldDecaration, obscureText: true),
-          const SizedBox(height: 32),
+          TextField(
+              decoration: textFieldDecaration,
+              controller: _passwordTextController,
+              obscureText: true),
+          if (errorText != null) ...[
+            const SizedBox(height: 8),
+            Text(errorText, style: TextStyles.text1RegularRed),
+          ],
+          const SizedBox(height: 26),
           Row(
             children: [
               ElevatedButton(
-                onPressed: () {},
+                onPressed: _auth,
                 style: ButtonStyles.littleMainButton,
                 child: const Text('Login'),
               ),

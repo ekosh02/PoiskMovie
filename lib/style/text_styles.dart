@@ -52,4 +52,10 @@ abstract class TextStyles {
     fontWeight: FontWeight.w500,
     color: Colors.black,
   );
+
+  static const TextStyle text1RegularRed = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    color: Colors.red,
+  );
 }
