@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tmdb_app/style/button_styles.dart';
 import 'package:tmdb_app/style/text_styles.dart';
 
 class AuthWidget extends StatefulWidget {
@@ -34,10 +35,10 @@ class _HeaderWidget extends StatelessWidget {
   final String headerText = 'Login to your account';
 
   final String descriptionText1 =
-      'In order to use the editing and rating capabilities of TMDB, as well as get personal recommendations you will need to login to your account. If you do not have an account, registering for an account is free and simple. Click here to get started.';
+      'In order to use the editing and rating capabilities of TMDB, as well as get personal recommendations you will need to login to your account. If you do not have an account, registering for an account is free and simple.';
 
   final String descriptionText2 =
-      'If you signed up but didn\'t get your verification email, click here to have it resent.';
+      'If you signed up but didn\'t get your verification email.';
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +51,20 @@ class _HeaderWidget extends StatelessWidget {
           const SizedBox(height: 10),
           Text(descriptionText1, style: TextStyles.text1Regular),
           const SizedBox(height: 10),
+          TextButton(
+            onPressed: () {},
+            style: ButtonStyles.littleTransparentButton,
+            child: const Text('Register'),
+          ),
+          const SizedBox(height: 10),
           Text(descriptionText2, style: TextStyles.text1Regular),
+          const SizedBox(height: 10),
+          TextButton(
+            onPressed: () {},
+            style: ButtonStyles.littleTransparentButton,
+            child: const Text('Verify email'),
+          ),
+          const SizedBox(height: 10),
         ],
       ),
     );
@@ -75,14 +89,30 @@ class _FormWidgetState extends State<_FormWidget> {
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          Text('Username', style: TextStyles.headline1RegularGray),
-          SizedBox(height: 8),
-          TextField(decoration: textFieldDecaration),
-          SizedBox(height: 16),
-          Text('Password', style: TextStyles.headline1RegularGray),
-          SizedBox(height: 8),
-          TextField(decoration: textFieldDecaration),
+        children: [
+          const Text('Username', style: TextStyles.headline1RegularGray),
+          const SizedBox(height: 4),
+          const TextField(decoration: textFieldDecaration),
+          const SizedBox(height: 16),
+          const Text('Password', style: TextStyles.headline1RegularGray),
+          const SizedBox(height: 4),
+          const TextField(decoration: textFieldDecaration, obscureText: true),
+          const SizedBox(height: 32),
+          Row(
+            children: [
+              ElevatedButton(
+                onPressed: () {},
+                style: ButtonStyles.littleMainButton,
+                child: const Text('Login'),
+              ),
+              const SizedBox(width: 16),
+              TextButton(
+                onPressed: () {},
+                style: ButtonStyles.littleTransparentButton,
+                child: const Text('Reset password'),
+              )
+            ],
+          )
         ],
       ),
     );
