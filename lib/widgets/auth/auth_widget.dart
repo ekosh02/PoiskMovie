@@ -14,58 +14,16 @@ class _AuthWidgetState extends State<AuthWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('TMDB'),
+        title: const Text('Login to your account'),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: ListView(
           children: const [
-            _HeaderWidget(),
             _FormWidget(),
+            _HeaderWidget(),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class _HeaderWidget extends StatelessWidget {
-  const _HeaderWidget({Key? key}) : super(key: key);
-
-  final String headerText = 'Login to your account';
-
-  final String descriptionText1 =
-      'In order to use the editing and rating capabilities of TMDB, as well as get personal recommendations you will need to login to your account. If you do not have an account, registering for an account is free and simple.';
-
-  final String descriptionText2 =
-      'If you signed up but didn\'t get your verification email.';
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(headerText, style: TextStyles.title2Semibold),
-          const SizedBox(height: 10),
-          Text(descriptionText1, style: TextStyles.text1Regular),
-          const SizedBox(height: 10),
-          TextButton(
-            onPressed: () {},
-            style: ButtonStyles.littleTransparentButton,
-            child: const Text('Register'),
-          ),
-          const SizedBox(height: 10),
-          Text(descriptionText2, style: TextStyles.text1Regular),
-          const SizedBox(height: 10),
-          TextButton(
-            onPressed: () {},
-            style: ButtonStyles.littleTransparentButton,
-            child: const Text('Verify email'),
-          ),
-          const SizedBox(height: 10),
-        ],
       ),
     );
   }
@@ -86,7 +44,7 @@ class _FormWidgetState extends State<_FormWidget> {
       isCollapsed: true,
     );
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16),
+      padding: const EdgeInsets.symmetric(vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -113,6 +71,43 @@ class _FormWidgetState extends State<_FormWidget> {
               )
             ],
           )
+        ],
+      ),
+    );
+  }
+}
+
+class _HeaderWidget extends StatelessWidget {
+  const _HeaderWidget({Key? key}) : super(key: key);
+
+  final String descriptionText1 =
+      'In order to use the editing and rating capabilities of TMDB, as well as get personal recommendations you will need to login to your account. If you do not have an account, registering for an account is free and simple.';
+
+  final String descriptionText2 =
+      'If you signed up but didn\'t get your verification email.';
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(descriptionText1, style: TextStyles.text1Regular),
+          const SizedBox(height: 10),
+          ElevatedButton(
+            onPressed: () {},
+            style: ButtonStyles.littleMainButton,
+            child: const Text('Register'),
+          ),
+          const SizedBox(height: 10),
+          Text(descriptionText2, style: TextStyles.text1Regular),
+          const SizedBox(height: 10),
+          ElevatedButton(
+            onPressed: () {},
+            style: ButtonStyles.littleMainButton,
+            child: const Text('Verify email'),
+          ),
         ],
       ),
     );
