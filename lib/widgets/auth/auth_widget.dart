@@ -94,15 +94,15 @@ class _HeaderWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(descriptionText1, style: TextStyles.text1Regular),
-          const SizedBox(height: 10),
+          const SizedBox(height: 8),
           ElevatedButton(
             onPressed: () {},
             style: ButtonStyles.littleMainButton,
             child: const Text('Register'),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 20),
           Text(descriptionText2, style: TextStyles.text1Regular),
-          const SizedBox(height: 10),
+          const SizedBox(height: 8),
           ElevatedButton(
             onPressed: () {},
             style: ButtonStyles.littleMainButton,
