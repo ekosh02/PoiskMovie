@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tmdb_app/style/color_set.dart';
 import 'package:tmdb_app/widgets/auth/auth_widget.dart';
 import 'package:tmdb_app/widgets/main_screen/main_screen_widget.dart';
 
@@ -17,12 +18,12 @@ class App extends StatelessWidget {
         appBarTheme: const AppBarTheme(
           centerTitle: true,
           elevation: 0,
+          backgroundColor: ColorSet.mainColorTheme,
         ),
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          unselectedItemColor: Colors.grey,
-          selectedItemColor: Colors.white,
-          backgroundColor: Colors.blue,
-        ),
+            unselectedItemColor: ColorSet.greyTheme,
+            selectedItemColor: ColorSet.whiteTheme,
+            backgroundColor: ColorSet.mainColorTheme),
       ),
       routes: {
         '/auth': (context) => const AuthWidget(),
