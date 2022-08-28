@@ -48,6 +48,7 @@ class _FormWidgetState extends State<_FormWidget> {
     if (login == 'admin' && password == 'admin') {
       print('auth');
       errorText = null;
+      Navigator.of(context).pushReplacementNamed('/auth/main_screen');
     } else {
       print('Auth error');
       errorText = 'Wrong login or password';
