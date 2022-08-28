@@ -18,6 +18,11 @@ class App extends StatelessWidget {
           centerTitle: true,
           elevation: 0,
         ),
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          unselectedItemColor: Colors.grey,
+          selectedItemColor: Colors.white,
+          backgroundColor: Colors.blue,
+        ),
       ),
       routes: {
         '/auth': (context) => const AuthWidget(),
