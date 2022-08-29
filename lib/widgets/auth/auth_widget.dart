@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tmdb_app/style/button_styles.dart';
+import 'package:tmdb_app/style/text_field_style.dart';
 import 'package:tmdb_app/style/text_styles.dart';
 
 class AuthWidget extends StatefulWidget {
@@ -51,35 +52,26 @@ class _FormWidgetState extends State<_FormWidget> {
       Navigator.of(context).pushReplacementNamed('/auth/main_screen');
     } else {
       print('Auth error');
-      errorText = 'Wrong login or password';
+      errorText = 'Wrong login or password!';
     }
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    const textFieldDecaration = InputDecoration(
-      border: OutlineInputBorder(),
-      contentPadding: EdgeInsets.symmetric(horizontal: 13, vertical: 10),
-      isCollapsed: true,
-    );
     final errorText = this.errorText;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Username', style: TextStyles.headline1RegularGray),
-          const SizedBox(height: 4),
           TextField(
-            decoration: textFieldDecaration,
+            decoration: textFieldStyle('Username'),
             controller: _loginTextController,
           ),
-          const SizedBox(height: 16),
-          const Text('Password', style: TextStyles.headline1RegularGray),
-          const SizedBox(height: 4),
+          const SizedBox(height: 20),
           TextField(
-              decoration: textFieldDecaration,
+              decoration: textFieldStyle('Password'),
               controller: _passwordTextController,
               obscureText: true),
           if (errorText != null) ...[
