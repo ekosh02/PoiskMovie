@@ -9,13 +9,7 @@ class MainScreenWidget extends StatefulWidget {
 }
 
 class _MainScreenWidgetState extends State<MainScreenWidget> {
-  static final List<Widget> _widgetOptions = <Widget>[
-    const Text('News'),
-    MovieListWidget(),
-    const Text('TV shows'),
-  ];
-
-  int _selectedTab = 1;
+  int _selectedTab = 0;
 
   void _onSelectTab(int index) {
     if (index == _selectedTab) return;
@@ -26,28 +20,34 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('TMDB'),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedTab,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'News',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.movie_filter),
-            label: 'Movies',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.tv),
-            label: 'TV shows',
-          ),
-        ],
-        onTap: _onSelectTab,
-      ),
-      body: _widgetOptions[_selectedTab],
-    );
+        appBar: AppBar(
+          title: const Text('TMDB'),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _selectedTab,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'News',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.movie_filter),
+              label: 'Movies',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.tv),
+              label: 'TV shows',
+            ),
+          ],
+          onTap: _onSelectTab,
+        ),
+        body: IndexedStack(
+          index: _selectedTab,
+          children: const [
+            Text('News'),
+            MovieListWidget(),
+            Text('TV shows'),
+          ],
+        ));
   }
 }
