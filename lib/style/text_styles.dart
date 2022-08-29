@@ -58,4 +58,18 @@ abstract class TextStyles {
     fontWeight: FontWeight.w400,
     color: Colors.red,
   );
+
+  //---------------------------------------------------------
+
+  static const TextStyle text2Regular = TextStyle(
+    fontSize: 15,
+    fontWeight: FontWeight.w400,
+    color: Colors.black,
+  );
+
+  static const TextStyle text2RegularGrey = TextStyle(
+    fontSize: 15,
+    fontWeight: FontWeight.w400,
+    color: Colors.grey,
+  );
 }
