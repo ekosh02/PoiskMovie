@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tmdb_app/widgets/movie_list/movie_list.dart';
 
 class MainScreenWidget extends StatefulWidget {
   const MainScreenWidget({Key? key}) : super(key: key);
@@ -8,10 +9,10 @@ class MainScreenWidget extends StatefulWidget {
 }
 
 class _MainScreenWidgetState extends State<MainScreenWidget> {
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text('News'),
-    Text('Movies'),
-    Text('TV shows'),
+  static final List<Widget> _widgetOptions = <Widget>[
+    const Text('News'),
+    MovieListWidget(),
+    const Text('TV shows'),
   ];
 
   int _selectedTab = 1;
