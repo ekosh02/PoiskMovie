@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tmdb_app/resources/app_images.dart';
 import 'package:tmdb_app/style/color_set.dart';
+import 'package:tmdb_app/style/text_field_style.dart';
 import 'package:tmdb_app/style/text_styles.dart';
 
 class Movie {
@@ -17,10 +18,15 @@ class Movie {
   });
 }
 
-class MovieListWidget extends StatelessWidget {
-  MovieListWidget({super.key});
+class MovieListWidget extends StatefulWidget {
+  const MovieListWidget({super.key});
 
-  final _movie = [
+  @override
+  State<MovieListWidget> createState() => _MovieListWidgetState();
+}
+
+class _MovieListWidgetState extends State<MovieListWidget> {
+  final _movies = [
     Movie(
         image: AppImages.mars,
         title: 'Mars',
@@ -71,85 +77,124 @@ class MovieListWidget extends StatelessWidget {
             'Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System, being larger than only Mercury. In the English language, Mars is named for the Roman god of war. Mars is a terrestrial planet with a thin atmosphere, and has a crust primarily composed of elements similar to Earth\'s crust, as well as a core made of iron and nickel. Mars has surface features such as impact craters, valleys, dunes, and polar ice caps. It has two small and irregularly shaped moons: Phobos and Deimos.'),
   ];
 
+  var _filteredMovies = <Movie>[];
+
+  final _searchController = TextEditingController();
+
+  void _searcMovies() {
+    if (_searchController.text.isNotEmpty) {
+      _filteredMovies = _movies
+          .where(
+            (Movie movie) => movie.title
+                .toLowerCase()
+                .contains(_searchController.text.toLowerCase()),
+          )
+          .toList();
+    } else {
+      _filteredMovies = _movies;
+    }
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _filteredMovies = _movies;
+    _searchController.addListener(_searcMovies);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemExtent: 163,
-      itemCount: _movie.length,
-      physics: const BouncingScrollPhysics(),
-      itemBuilder: (BuildContext context, int index) {
-        final movie = _movie[index];
-        return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-          child: Stack(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(
-                    color: ColorSet.mainColorTheme.withOpacity(0.2),
-                  ),
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(10),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: ColorSet.dartTheme.withOpacity(0.2),
-                      offset: const Offset(0, 2),
-                      blurRadius: 8,
-                    ),
-                  ],
-                ),
-                clipBehavior: Clip.hardEdge,
-                child: Row(
-                  children: [
-                    Image(image: AssetImage(movie.image)),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const SizedBox(height: 16),
-                          Text(
-                            movie.title,
-                            style: TextStyles.headline1Regular,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            movie.date,
-                            style: TextStyles.text2RegularGrey,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          const SizedBox(height: 16),
-                          Text(
-                            movie.description,
-                            style: TextStyles.text2Regular,
-                            maxLines: 3,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ],
+    return Stack(
+      children: [
+        ListView.builder(
+          padding: const EdgeInsets.symmetric(vertical: 52),
+          itemExtent: 163,
+          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+          itemCount: _filteredMovies.length,
+          physics: const BouncingScrollPhysics(),
+          itemBuilder: (BuildContext context, int index) {
+            final movie = _filteredMovies[index];
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+              child: Stack(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(
+                        color: ColorSet.mainColorTheme.withOpacity(0.2),
                       ),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(10),
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: ColorSet.dartTheme.withOpacity(0.2),
+                          offset: const Offset(0, 2),
+                          blurRadius: 8,
+                        ),
+                      ],
                     ),
-                    const SizedBox(width: 8),
-                  ],
-                ),
-              ),
-              Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(10),
+                    clipBehavior: Clip.hardEdge,
+                    child: Row(
+                      children: [
+                        Image(image: AssetImage(movie.image)),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const SizedBox(height: 16),
+                              Text(
+                                movie.title,
+                                style: TextStyles.headline1Regular,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                movie.date,
+                                style: TextStyles.text2RegularGrey,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              const SizedBox(height: 16),
+                              Text(
+                                movie.description,
+                                style: TextStyles.text2Regular,
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                      ],
+                    ),
                   ),
-                  onTap: () {},
-                ),
-              )
-            ],
+                  Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(10),
+                      ),
+                      onTap: () {},
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          child: TextField(
+            decoration: textFieldStyle('Search'),
+            controller: _searchController,
           ),
-        );
-      },
+        )
+      ],
     );
   }
 }
