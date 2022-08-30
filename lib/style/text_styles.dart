@@ -27,6 +27,32 @@ abstract class TextStyles {
 
   //---------------------------------------------------------
 
+  static const TextStyle title1BoldWhite = TextStyle(
+    fontSize: 26,
+    fontWeight: FontWeight.w600,
+    color: Colors.white,
+  );
+
+  static const TextStyle title1SemiboldWhite = TextStyle(
+    fontSize: 26,
+    fontWeight: FontWeight.w500,
+    color: Colors.white,
+  );
+
+  static const TextStyle title2SemiboldWhite = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.w500,
+    color: Colors.white,
+  );
+
+  static const TextStyle title2RegularWhite = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.w400,
+    color: Colors.white,
+  );
+
+  //---------------------------------------------------------
+
   static const TextStyle headline1Regular = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w400,
@@ -41,6 +67,14 @@ abstract class TextStyles {
 
   //---------------------------------------------------------
 
+  static const TextStyle headline1RegularWhite = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w400,
+    color: Colors.white,
+  );
+
+  //---------------------------------------------------------
+
   static const TextStyle text1Regular = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w400,
@@ -51,6 +85,20 @@ abstract class TextStyles {
     fontSize: 16,
     fontWeight: FontWeight.w500,
     color: Colors.black,
+  );
+
+  //---------------------------------------------------------
+
+  static const TextStyle text1RegularWhite = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    color: Colors.white,
+  );
+
+  static const TextStyle text1MediumWhite = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+    color: Colors.white,
   );
 
   static const TextStyle text1RegularRed = TextStyle(
@@ -71,5 +119,13 @@ abstract class TextStyles {
     fontSize: 15,
     fontWeight: FontWeight.w400,
     color: Colors.grey,
+  );
+
+  //---------------------------------------------------------
+
+  static const TextStyle text2RegularWhite = TextStyle(
+    fontSize: 15,
+    fontWeight: FontWeight.w400,
+    color: Colors.white,
   );
 }
