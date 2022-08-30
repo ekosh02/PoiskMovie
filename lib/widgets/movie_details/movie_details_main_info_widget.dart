@@ -14,6 +14,7 @@ class MovieDetailsMainInfoWidget extends StatelessWidget {
         children: const [
           _TopPosterWidget(),
           _MovieNameWidget(),
+          _SummeryWidget(),
         ],
       ),
     );
@@ -45,7 +46,7 @@ class _MovieNameWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
       child: Center(
         child: RichText(
           maxLines: 2,
@@ -56,6 +57,25 @@ class _MovieNameWidget extends StatelessWidget {
               TextSpan(text: '(2022)', style: TextStyles.headline1RegularWhite),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class _SummeryWidget extends StatelessWidget {
+  const _SummeryWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const ColoredBox(
+      color: Colors.black26,
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 64, vertical: 13),
+        child: Center(
+          child: Text(
+              'R, 08/29/2022 (US) 1h 59m \nAction, Triller, War, Adventure',
+              style: TextStyles.headline1RegularWhite),
         ),
       ),
     );
