@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tmdb_app/widgets/movie_details/movie_details_main_info_widget.dart';
 
 class MovieDetailsWidget extends StatefulWidget {
   final int movieId;
@@ -14,6 +15,15 @@ class MovieDetailsWidget extends StatefulWidget {
 class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Mars'),
+      ),
+      body: ListView(
+        children: const [
+          MovieDetailsMainInfoWidget(),
+        ],
+      ),
+    );
   }
 }
