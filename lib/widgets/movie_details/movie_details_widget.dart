@@ -3,6 +3,7 @@ import 'package:tmdb_app/widgets/movie_details/movie_details_main_info_widget.da
 
 class MovieDetailsWidget extends StatefulWidget {
   final int movieId;
+
   const MovieDetailsWidget({
     Key? key,
     required this.movieId,
@@ -19,11 +20,7 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
       appBar: AppBar(
         title: const Text('Mars'),
       ),
-      body: ListView(
-        children: const [
-          MovieDetailsMainInfoWidget(),
-        ],
-      ),
+      body: const MovieDetailsMainInfoWidget(),
     );
   }
 }
