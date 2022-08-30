@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:tmdb_app/resources/app_images.dart';
 
-class MovieDetailsMainInfoWidget extends StatefulWidget {
+class MovieDetailsMainInfoWidget extends StatelessWidget {
   const MovieDetailsMainInfoWidget({Key? key}) : super(key: key);
 
   @override
-  State<MovieDetailsMainInfoWidget> createState() =>
-      _MovieDetailsMainInfoWidgetState();
+  Widget build(BuildContext context) {
+    return ListView(
+      children: const [
+        _TopPosterWidget(),
+      ],
+    );
+  }
 }
 
-class _MovieDetailsMainInfoWidgetState
-    extends State<MovieDetailsMainInfoWidget> {
+class _TopPosterWidget extends StatelessWidget {
+  const _TopPosterWidget({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Stack(
