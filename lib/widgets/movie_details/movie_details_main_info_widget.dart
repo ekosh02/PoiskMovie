@@ -13,6 +13,7 @@ class MovieDetailsMainInfoWidget extends StatelessWidget {
         _MovieNameWidget(),
         _SummeryWidget(),
         _DescriptionWidget(),
+        _CompositionWidget(),
       ],
     );
   }
@@ -100,6 +101,73 @@ class _DescriptionWidget extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+}
+
+class _CompositionWidget extends StatelessWidget {
+  const _CompositionWidget();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const SizedBox(height: 24),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text(
+                  'Admin Admin',
+                  style: TextStyles.headline1RegularWhite,
+                ),
+                Text('Director', style: TextStyles.headline1RegularWhite),
+              ],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text(
+                  'Admin Admin',
+                  style: TextStyles.headline1RegularWhite,
+                ),
+                Text('Director', style: TextStyles.headline1RegularWhite),
+              ],
+            )
+          ],
+        ),
+        const SizedBox(height: 24),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text(
+                  'Admin Admin',
+                  style: TextStyles.headline1RegularWhite,
+                ),
+                Text('Director', style: TextStyles.headline1RegularWhite),
+              ],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Text(
+                  'Admin Admin',
+                  style: TextStyles.headline1RegularWhite,
+                ),
+                Text('Director', style: TextStyles.headline1RegularWhite),
+              ],
+            )
+          ],
+        ),
+        const SizedBox(height: 24),
+      ],
     );
   }
 }
