@@ -12,6 +12,7 @@ class MovieDetailsMainInfoWidget extends StatelessWidget {
         _TopPosterWidget(),
         _MovieNameWidget(),
         _SummeryWidget(),
+        _DescriptionWidget(),
       ],
     );
   }
@@ -73,6 +74,31 @@ class _SummeryWidget extends StatelessWidget {
               'R, 08/29/2022 (US) 1h 59m \nAction, Triller, War, Adventure',
               style: TextStyles.headline1RegularWhite),
         ),
+      ),
+    );
+  }
+}
+
+class _DescriptionWidget extends StatelessWidget {
+  const _DescriptionWidget();
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [
+          Text(
+            'Overview',
+            style: TextStyles.title1SemiboldWhite,
+          ),
+          SizedBox(height: 16),
+          Text(
+            'Mars is a terrestrial planet with a thin atmosphere, and has a crust primarily composed of elements similar to Earth\'s crust, as well as a core made of iron and nickel. Mars has surface features such as impact craters, valleys, dunes, and polar ice caps. It has two small and irregularly shaped moons: Phobos and Deimos.',
+            style: TextStyles.text1RegularWhite,
+          )
+        ],
       ),
     );
   }
