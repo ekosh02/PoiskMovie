@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tmdb_app/resources/app_images.dart';
+import 'package:tmdb_app/style/color_set.dart';
 import 'package:tmdb_app/style/text_styles.dart';
 
 class MovieDetailsMainInfoWidget extends StatelessWidget {
@@ -11,6 +12,7 @@ class MovieDetailsMainInfoWidget extends StatelessWidget {
       children: const [
         _TopPosterWidget(),
         _MovieNameWidget(),
+        _ScoreWidget(),
         _SummeryWidget(),
         _DescriptionWidget(),
         _CompositionWidget(),
@@ -57,6 +59,49 @@ class _MovieNameWidget extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _ScoreWidget extends StatelessWidget {
+  const _ScoreWidget();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            TextButton(
+              onPressed: () {},
+              child: Row(
+                children: const [
+                  Text(
+                    '72%    User Score',
+                    style: TextStyles.headline1RegularWhite,
+                  ),
+                ],
+              ),
+            ),
+            Container(width: 1, height: 16, color: ColorSet.mainColorTheme),
+            TextButton(
+              onPressed: () {},
+              child: Row(
+                children: const [
+                  Icon(Icons.play_arrow),
+                  SizedBox(width: 8),
+                  Text(
+                    'User Score',
+                    style: TextStyles.headline1RegularWhite,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 10),
+      ],
     );
   }
 }
