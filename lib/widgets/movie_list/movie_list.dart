@@ -126,7 +126,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
     return Stack(
       children: [
         ListView.builder(
-          padding: const EdgeInsets.symmetric(vertical: 52),
+          padding: const EdgeInsets.only(top: 52),
           itemExtent: 163,
           keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
           itemCount: _filteredMovies.length,
