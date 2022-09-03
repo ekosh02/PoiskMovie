@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tmdb_app/style/color_set.dart';
 import 'package:tmdb_app/widgets/movie_details/movie_details_main_info_widget.dart';
 
 class MovieDetailsWidget extends StatefulWidget {
@@ -20,7 +21,10 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
       appBar: AppBar(
         title: const Text('Mars'),
       ),
-      body: const MovieDetailsMainInfoWidget(),
+      body: const ColoredBox(
+        color: ColorSet.dartTheme,
+        child: MovieDetailsMainInfoWidget(),
+      ),
     );
   }
 }

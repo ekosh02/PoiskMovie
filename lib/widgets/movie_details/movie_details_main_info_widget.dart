@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tmdb_app/resources/app_images.dart';
-import 'package:tmdb_app/style/color_set.dart';
 import 'package:tmdb_app/style/text_styles.dart';
 
 class MovieDetailsMainInfoWidget extends StatelessWidget {
@@ -8,15 +7,12 @@ class MovieDetailsMainInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
-      color: ColorSet.dartTheme,
-      child: ListView(
-        children: const [
-          _TopPosterWidget(),
-          _MovieNameWidget(),
-          _SummeryWidget(),
-        ],
-      ),
+    return ListView(
+      children: const [
+        _TopPosterWidget(),
+        _MovieNameWidget(),
+        _SummeryWidget(),
+      ],
     );
   }
 }
