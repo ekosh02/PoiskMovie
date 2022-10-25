@@ -21,9 +21,13 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
       appBar: AppBar(
         title: const Text('Mars'),
       ),
-      body: const ColoredBox(
+      body: ColoredBox(
         color: ColorSet.dartTheme,
-        child: MovieDetailsMainInfoWidget(),
+        child: ListView(
+          children: const [
+            MovieDetailsMainInfoWidget(),
+          ],
+        ),
       ),
     );
   }
