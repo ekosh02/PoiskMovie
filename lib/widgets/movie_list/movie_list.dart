@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tmdb_app/resources/app_images.dart';
-import 'package:tmdb_app/style/color_set.dart';
+import 'package:tmdb_app/style/box_decoration_style.dart';
 import 'package:tmdb_app/style/text_field_style.dart';
 import 'package:tmdb_app/style/text_styles.dart';
 
@@ -138,22 +138,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
               child: Stack(
                 children: [
                   Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        color: ColorSet.mainColorTheme.withOpacity(0.2),
-                      ),
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: ColorSet.dartTheme.withOpacity(0.2),
-                          offset: const Offset(0, 2),
-                          blurRadius: 8,
-                        ),
-                      ],
-                    ),
+                    decoration: BoxDecorationStyle.boxDecoration,
                     clipBehavior: Clip.hardEdge,
                     child: Row(
                       children: [
